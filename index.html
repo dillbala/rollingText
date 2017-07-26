@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+.click{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-weight: 700;
+	font-size: 2em;
+}
+</style>
+<body>
+<div class="click" onclick="clicked()"></div>
+<script type="text/javascript">
+	var text = [
+  "Lover",
+   "Husband",
+"Wife",
+   "BoyFriend",
+"GirlFriend",
+"Sister",
+   "Brother",
+"GrandMom",
+   "Granddad",
+   "Besty",
+   "Worst Enemy",
+   "Crush",
+   "Date",
+   "Best Friend",
+   "Favorite Person",
+   "Neighbour",
+   "Classmate",
+ "Great Fan",
+ "Business Partner",
+ "Guide",
+ "Heroine",
+"Hero",
+"Pet",
+"Boss",
+"Employee",
+"Manager",
+"House Owner",
+"Servent",
+"Driver",
+"Cleaner",
+"Home Maker",
+"President",
+"King",
+"Enemy",
+"Son",
+"Daughter",
+"Commander",
+"God Father",
+"Role Model",
+"Super Star",
+"Make up Man",
+"Unknown Person",
+"Super Hero",
+"Teacher",
+"Head Teacher",
+"Student",
+ "Lifetime Partner",
+ "Cutie Pie",
+ "Honey",
+ "Well Wisher",
+ "Father",
+"Mother",
+ "Friend Forever"
+];
+
+var delay = 50;
+var click = document.querySelector('.click');
+var counter = 0;
+var current = '';
+var textroll = setInterval(function(){
+  click.innerHTML = text[counter];
+  counter++;
+  if(counter > text.length-1){
+    counter = 0;
+  }
+  
+},delay);
+
+function clicked(){
+  click.removeAttribute("onClick","");
+  current = text[counter];
+  clearInterval(textroll);
+  textroll1();
+}
+
+var textroll1= function(){
+  click.innerHTML = text[counter];
+  setInterval(function(){
+  	if(counter===text.length-1){
+  		clearInterval(textroll1);
+  		click.innerHTML= current;
+  	}else{
+  		textroll1();
+  	}
+  },parseInt(++counter*3));
+}
+</script>
+</body>
+</html>
